@@ -25,3 +25,5 @@ Si se usa otro puerto o dirección para el frontend, agrega su origen exacto a `
 - Crear, editar y eliminar productos.
 - Validación de campos, mensajes de conexión y errores de la API.
 - Diseño adaptable a móvil y escritorio.
+
+GitHub Actions comprueba la sintaxis de JavaScript y hace una prueba HTTP del servidor estático en cada push o pull request a `main`.
