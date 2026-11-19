@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fb">
+    <title>Productos | Catálogo</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script type="module" src="/app.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Catálogo de productos, inicio">
+        <span class="brand-mark" aria-hidden="true">P</span>
+        <span>Catálogo<span class="brand-accent">.</span></span>
+      </a>
+      <span class="topbar-caption">Administración de productos</span>
+    </header>
+
+    <main class="page">
+      <section class="intro">
+        <div>
+          <p class="eyebrow">INVENTARIO</p>
+          <h1>Productos</h1>
+          <p class="intro-copy">Consulta y administra los productos de tu catálogo.</p>
+        </div>
+        <div class="api-setting">
+          <label for="api-url">API</label>
+          <input id="api-url" type="url" autocomplete="url" spellcheck="false">
+          <button id="save-api" class="button button-secondary" type="button">Conectar</button>
+        </div>
+      </section>
+
+      <p id="notice" class="notice" role="status" aria-live="polite" hidden></p>
+
+      <div class="workspace">
+        <section class="panel form-panel" aria-labelledby="form-title">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">CATÁLOGO</p>
+              <h2 id="form-title">Agregar producto</h2>
+            </div>
+            <span class="heading-icon" aria-hidden="true">+</span>
+          </div>
+          <form id="product-form">
+            <label for="name">Nombre</label>
+            <input id="name" name="nombre" type="text" maxlength="250" required placeholder="Ej. Teclado mecánico">
+
+            <label for="description">Descripción</label>
+            <textarea id="description" name="descripcion" rows="3" required placeholder="Describe el producto"></textarea>
+
+            <label for="image-url">URL de imagen</label>
+            <input id="image-url" name="URLImagen" type="url" required placeholder="https://ejemplo.com/imagen.jpg">
+
+            <div class="field-row">
+              <div>
+                <label for="price">Precio (PVP)</label>
+                <input id="price" name="pvp" type="text" inputmode="decimal" pattern="[0-9]{1,8}(\.[0-9]{1,2})?" required placeholder="0.00">
+              </div>
+              <div>
+                <label for="stock">Existencias</label>
+                <input id="stock" name="stock" type="number" min="0" max="2147483647" step="1" required placeholder="0">
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button id="submit-product" class="button button-primary" type="submit">Guardar producto</button>
+              <button id="cancel-edit" class="button button-quiet" type="button" hidden>Cancelar</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel catalog-panel" aria-labelledby="catalog-title">
+          <div class="catalog-heading">
+            <div>
+              <p class="eyebrow">TU INVENTARIO</p>
+              <h2 id="catalog-title">Listado</h2>
+            </div>
+            <label class="search-box">
+              <span class="sr-only">Filtrar esta página</span>
+              <span aria-hidden="true">⌕</span>
+              <input id="search" type="search" placeholder="Filtrar esta página">
+            </label>
+          </div>
+          <div id="product-list" class="product-list" aria-live="polite"></div>
+          <div class="pagination">
+            <span id="page-info" class="page-info"></span>
+            <div class="page-buttons">
+              <button id="previous-page" class="button button-secondary" type="button" aria-label="Página anterior">Anterior</button>
+              <button id="next-page" class="button button-secondary" type="button" aria-label="Página siguiente">Siguiente</button>
+            </div>
+          </div>
+        </section>
+      </div>
+      <footer>Catálogo de productos <span aria-hidden="true">·</span> API REST</footer>
+    </main>
+  </body>
+</html>
