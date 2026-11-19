@@ -2,6 +2,8 @@
 
 Interfaz web responsive para consultar y administrar productos mediante la API REST del proyecto. Está construida con HTML, CSS y JavaScript nativo; no requiere instalar dependencias.
 
+El backend correspondiente está en [TAREA_DESARROLLO_BACKEND](https://github.com/MelanieVinueza/TAREA_DESARROLLO_BACKEND).
+
 ## Requisitos
 
 - Node.js 22 o superior.
