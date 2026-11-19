@@ -8,6 +8,10 @@
   },
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "check:modules": "madge --circular app.js server.js"
+  },
+  "devDependencies": {
+    "madge": "^8.0.0"
   }
 }

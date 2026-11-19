@@ -27,3 +27,9 @@ Si se usa otro puerto o dirección para el frontend, agrega su origen exacto a `
 - Diseño adaptable a móvil y escritorio.
 
 GitHub Actions comprueba la sintaxis de JavaScript y hace una prueba HTTP del servidor estático en cada push o pull request a `main`.
+
+## Validaciones automáticas
+
+En Node.js 22, 24 y 26, CI instala versiones bloqueadas con `npm ci`, revisa el árbol de dependencias con `npm ls`, ejecuta `npm audit`, comprueba que no haya ciclos entre módulos con Madge y valida la sintaxis y rutas HTTP del servidor. CodeQL analiza JavaScript con consultas `security-extended` en cada cambio y semanalmente. Dependabot revisa actualizaciones de npm y GitHub Actions.
+
+La aplicación no usa framework ni dependencias de ejecución; Madge se usa solo para desarrollo y validación de la estructura modular.

@@ -12,11 +12,23 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [22, 24, 26]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+      - run: npm ci
+      - name: Check dependencies and known vulnerabilities
+        run: |
+          npm ls --depth=0
+          npm audit --audit-level=high
+      - name: Check module boundaries
+        run: npm run check:modules
       - name: Check JavaScript syntax
         run: |
           node --check app.js
@@ -34,3 +46,5 @@ jobs:
           done
           curl --fail --silent http://localhost:5173/app.js > /dev/null
           curl --fail --silent http://localhost:5173/styles.css > /dev/null
+          test "$(curl --silent --output /dev/null --write-out '%{http_code}' http://localhost:5173/server.js)" = "404"
+          test "$(curl --silent --output /dev/null --write-out '%{http_code}' --request POST http://localhost:5173/)" = "405"
