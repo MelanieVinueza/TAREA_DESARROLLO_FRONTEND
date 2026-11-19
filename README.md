@@ -2,7 +2,7 @@
 
 Interfaz web responsive para consultar y administrar productos mediante la API REST del proyecto. Está construida con HTML, CSS y JavaScript nativo; no requiere instalar dependencias.
 
-El backend correspondiente está en [TAREA_DESARROLLO_BACKEND](https://github.com/MelanieVinueza/TAREA_DESARROLLO_BACKEND).
+El backend correspondiente está en [TAREA_DESARROLLO_BACKEND-](https://github.com/MelanieVinueza/TAREA_DESARROLLO_BACKEND-).
 
 ## Requisitos
 
@@ -33,3 +33,9 @@ GitHub Actions comprueba la sintaxis de JavaScript y hace una prueba HTTP del se
 En Node.js 22, 24 y 26, CI instala versiones bloqueadas con `npm ci`, revisa el árbol de dependencias con `npm ls`, ejecuta `npm audit`, comprueba que no haya ciclos entre módulos con Madge y valida la sintaxis y rutas HTTP del servidor. CodeQL analiza JavaScript con consultas `security-extended` en cada cambio y semanalmente. Dependabot revisa actualizaciones de npm y GitHub Actions.
 
 La aplicación no usa framework ni dependencias de ejecución; Madge se usa solo para desarrollo y validación de la estructura modular.
+
+## GitHub Pages
+
+El workflow de Pages publica solo `index.html`, `app.js` y `styles.css` al hacer push a `main`. Para el primer despliegue, en el repositorio abre **Settings → Pages** y selecciona **GitHub Actions** como fuente.
+
+Pages solo aloja la interfaz. Para usar el CRUD desde el sitio publicado, configura en el campo **API** una URL pública HTTPS del backend y agrega `https://melanievinueza.github.io` a `CORS_ORIGINS` del backend.

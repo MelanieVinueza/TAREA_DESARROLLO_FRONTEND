@@ -54,7 +54,7 @@ async function request(path = '', options = {}) {
   try {
     response = await fetch(`${base}/productos${path}`, options);
   } catch {
-    throw new Error('No se pudo conectar con la API. Comprueba que el backend esté iniciado y que CORS permita http://localhost:5173.');
+    throw new Error(`No se pudo conectar con la API. Comprueba que el backend esté iniciado y que CORS permita ${window.location.origin}.`);
   }
 
   if (response.status === 204) return null;
