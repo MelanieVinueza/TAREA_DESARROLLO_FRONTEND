@@ -1,4 +1,4 @@
-# Frontend de productos
+# TAREA_DESARROLLO_FRONTEND
 
 Interfaz web responsive para consultar y administrar productos mediante la API REST del proyecto. Está construida con HTML, CSS y JavaScript nativo; no requiere instalar dependencias.
 
